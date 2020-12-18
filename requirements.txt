@@ -19,3 +19,4 @@ six
 PythonTurtle==0.3.1
 tornado
 hdbscan
+gunicorn==20.0.4
