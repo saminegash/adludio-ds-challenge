@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+}
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+.container{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    transform-style: preserve-3d;
+}
+.container .box {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 40px;
+    background: rgba(102, 16, 242, .3);
+
+    border-radius: 20px;
+    transform-style: preserve-3d;
+}
+.container .box:hover{
+    background: #d1d1d1;
+
+}
+
+
+.container .box:before{
+    content: 'BEST';
+    position: absolute;
+    top: 5px;
+    left: 30%;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #6610f2;
+    font-style: italic;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .box:after{
+    content: 'ADS';
+    position: absolute;
+    bottom: 5px;
+    left: 30%;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #6610f2;
+    font-style: italic;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .box:hover::before,
+.container .box:hover::after
+{
+    
+    opacity: 0.3;
+
+}
+
+.container .box .name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: #6610f2;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform: translate3d(0,0,75px);
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.container .box:hover .name{
+    top:40px;
+    opacity: 1;
+
+}
+
+.container .box .play{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,0,75px);
+    color: #6610f2;
+    background: #e1e1e1;
+    border: 1px solid #6610f2;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.container .box:hover .play{
+    bottom: 30px;
+    box-shadow: 0 0 11px rgba(102, 16, 242, .5);
+    opacity: 1;
+}
+
+.container .box .circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 200px;
+    border-radius: 50%;
+    transition: 0.5s;
+    background: #333;
+    transform-style: preserve-3d;
+    z-index: 6;
+    opacity: 1;
+    transform: translate3d(-20%, -50%, 50px);
+}
+
+.container .box .product {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 300px;
+    transition: 0.5s;
+    z-index: 11;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%, -50%,0px) rotate(-1deg);
+}
+
+
+.select{
+    padding: 20px 20px;
+    margin: 10px 5px;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.select:focus,
+.select:hover{
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+
+.submit{
+    padding: 20px 20px;
+    margin: 10px 5px;
+    color: #fff;
+    background-color: #7347ff;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+    .container .box{
+        width: 90%;
+        height: auto;
+
+    }
+  }
