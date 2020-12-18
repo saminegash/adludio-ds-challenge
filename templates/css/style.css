@@ -17,8 +17,8 @@ body{
 .flex-container{
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
 }
 .container{
     position: relative;
@@ -26,13 +26,12 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
-    max-width: 1200px;
+    width: 1200px;
     transform-style: preserve-3d;
 }
 .container .box {
     position: relative;
-    width: 300px;
+    width: 280px;
     height: 350px;
     margin: 40px;
     background: rgba(102, 16, 242, .3);
@@ -127,7 +126,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30%;
+    width: 200px;
     height: 200px;
     border-radius: 50%;
     transition: 0.5s;
@@ -169,20 +168,16 @@ body{
 }
 
 .submit{
-    padding: 20px 20px;
+    padding: 10px 20px;
     margin: 10px 5px;
     color: #fff;
-    background-color: #7347ff;
+    background-color:  rgba(102, 16, 242, 0.75);
     border: 1px solid #dddddd;
     cursor: pointer;
-    border-radius: 10px;
-    width: 40%;
+    border-radius: 2px;
+
 }
-
-@media only screen and (max-width: 600px) {
-    .container .box{
-        width: 90%;
-        height: auto;
-
-    }
-  }
+.submit:hover{
+        background-color: #6610f2;
+      
+}

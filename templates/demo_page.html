@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/css.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
-
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="./css/jquery.datetimepicker.css" />
     <script src="./js/moment.min.js"></script>
 
@@ -35,21 +35,22 @@
         <div class="container">
             <div id="results"></div>
         </div>
-        <div class="container">
-            <h1 class="name">Best Performing Ads</h1>
+        <div id="heading" class="container">
+            <h1 class="name">Sample Ads</h1>
         </div>
-        <div class="container">
+        <div id="container" class="container">
 
             <div class="box">
-                <h2 class="name">Game Name</h2>
+                <h2 class="name">Sample Ads</h2>
                 <a href="#" class="play">Buy</a>
                 <!-- <div class="circle"></div> -->
                 <iframe
                     src='https://wat.adludio.com/games/015efcdd8de3698ffc4dad6dabd6664a/142dcad593832d3d624d/index.html'
                     style="border-style: none;width: 70%; height: 180px;" title="GameID?" class="product"></iframe>
             </div>
+
             <div class="box">
-                <h2 class="name">Game Name</h2>
+                <h2 class="name">Sample Ads</h2>
                 <a href="#" class="play">Buy</a>
                 <!-- <div class="circle"></div> -->
                 <iframe
@@ -57,31 +58,7 @@
                     style="border-style: none;width: 70%; height: 180px;" title=" GameID?" class="product"></iframe>
             </div>
             <div class="box">
-                <h2 class="name">Game Name</h2>
-                <a href="#" class="play">Buy</a>
-                <!-- <div class="circle"></div> -->
-                <iframe
-                    src='https://wat.adludio.com/games/adunit-mcdonalds-happymeal-book-fr-mob/61cdd1d42e34e8ab8c66/index.html'
-                    style="border-style: none;width: 70%; height: 180px;" title="GameID?" class="product"></iframe>
-            </div>
-            <div class="box">
-                <h2 class="name">Game Name</h2>
-                <a href="#" class="play">Buy</a>
-                <!-- <div class="circle"></div> -->
-                <iframe
-                    src='https://wat.adludio.com/games/015efcdd8de3698ffc4dad6dabd6664a/142dcad593832d3d624d/index.html'
-                    style="border-style: none;width: 70%; height: 180px;" title="GameID?" class="product"></iframe>
-            </div>
-            <div class="box">
-                <h2 class="name">Game Name</h2>
-                <a href="#" class="play">Buy</a>
-                <!-- <div class="circle"></div> -->
-                <iframe
-                    src='https://wat.adludio.com/games/adunit-mcdonalds-happymeal-book-fr-mob/61cdd1d42e34e8ab8c66/index.html'
-                    style="border-style: none;width: 70%; height: 180px;" title=" GameID?" class="product"></iframe>
-            </div>
-            <div class="box">
-                <h2 class="name">Game Name</h2>
+                <h2 class="name">Sample Ads</h2>
                 <a href="#" class="play">Buy</a>
                 <!-- <div class="circle"></div> -->
                 <iframe
@@ -89,22 +66,6 @@
                     style="border-style: none;width: 70%; height: 180px;" title="GameID?" class="product"></iframe>
             </div>
 
-            <div class="box">
-                <h2 class="name">Game Name</h2>
-                <a href="#" class="play">Buy</a>
-                <!-- <div class="circle"></div> -->
-                <iframe
-                    src='https://wat.adludio.com/games/adunit-mcdonalds-happymeal-book-fr-mob/61cdd1d42e34e8ab8c66/index.html'
-                    style="border-style: none;width: 70%; height: 180px;" title=" GameID?" class="product"></iframe>
-            </div>
-            <div class="box">
-                <h2 class="name">Game Name</h2>
-                <a href="#" class="play">Buy</a>
-                <!-- <div class="circle"></div> -->
-                <iframe
-                    src='https://wat.adludio.com/games/adunit-mcdonalds-happymeal-book-fr-mob/61cdd1d42e34e8ab8c66/index.html'
-                    style="border-style: none;width: 70%; height: 180px;" title="GameID?" class="product"></iframe>
-            </div>
         </div>
     </div>
 
@@ -169,17 +130,14 @@
             });
         return FormData;
     }
-
-    var tt;
-    var d;
+    // this variables are not used 
+    //var tt;
+    //var d;
     function submit_form(elem) {
-        console.log(elem.form)
         var url = BASE_URL + 'recommend_sort_games';
         var form_id = $(elem.form).attr('id')
         var data_ = get_form_data(elem.form);
-        d = data_;
-        console.log(JSON.stringify(data_));
-        console.log(d)
+
         $.ajax({
             type: "POST",
             url: url,
@@ -188,8 +146,8 @@
                 // process data
                 tt = JSON.parse(res);
                 display_results(JSON.parse(res));
-                console.log(res)
-                console.log("It's a success!")
+                //console.log(res)
+                //console.log("It's a success!")
             },
             error: function (res) {
                 console.log('error');
@@ -197,20 +155,33 @@
         });
     }
 
-    function display_results(res) {
-        $('#results').html(JSON.stringify(res))
-    }
+    function display_results(data) {
 
-    var tt
-    function list_searchable_parameters() {
-        var url = BASE_URL + 'list_searchable_parameters';
-        console.log(url);
+        var url = BASE_URL + 'get_data_dump';
         $.ajax({
             type: "GET",
             url: url,
             success: function (res) {
                 // process data
-                tt = JSON.parse(res);
+                populate_form_card(JSON.parse(res), data);
+                console.log("It's a success!");
+            },
+            error: function (res) {
+                console.log(err)
+            }
+        });
+    }
+
+    // unused variable commented out
+    //var tt
+    function list_searchable_parameters() {
+        var url = BASE_URL + 'list_searchable_parameters';
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                // process data
+                //tt = JSON.parse(res);
                 populate_form(JSON.parse(res));
                 console.log("It's a success!");
             },
@@ -221,7 +192,6 @@
 
     // auto generate a form, based on current data
     function populate_form(data) {
-        console.log("data: ", data);
         // replace form_html with **dynamically generated*** html
         // based on keys and values.
 
@@ -242,10 +212,10 @@
         Step 3. Appending ending tag for the select tag */
 
         // step 1
-        let region_form_element = "<select multiple='multiple' name='region' class='select'><option disabled selected>Select Region</option>";
+        let region_form_element = "<select multiple='multiple' name='region' class='select'><option disabled selected>Select Region( you can select multiple)</option>";
 
 
-        let season_form_element = "<select multiple='multiple' name='season' class='select'><option disabled selected>Select Season</option>";
+        let season_form_element = "<select multiple='multiple' name='season' class='select'><option disabled selected>Select Season(you can select multiple)</option>";
 
 
         let vertical_form_element = "<select multiple='multiple' name='vertical' class='select'><option disabled selected>Select Vertical</option>";
@@ -300,6 +270,23 @@
 
     }
 
+    function populate_form_card(res, data) {
+        data = data.slice(0, 15)
+        const first_key = res.game_data.first_key
+        const version = res.game_data.version
+        var form_html = ''
+        for (element of data) {
+            const index = first_key.indexOf(element.game_id)
+            form_html += `<div class="box"><h2 class="name">Score:${parseFloat(element.score).toFixed(4)}</h2><a href="#" class="play">Buy</a><iframe  src='https://wat.adludio.com/games/${first_key[index]}/${version[index]}/index.html' loading='lazy' style="border-style: none;width: 70%; height: 180px;" title="${element.game_id}" class="product"></iframe></div>`
+        }
+        if (data.length == 0) {
+            form_html += `<div class="box"><h2 style="padding:20px; font-size:1rem">Select the options and click the button above</h2><img  src='./images/warning.jpeg' loading='lazy' style="border-style: none;width: 70%; height: 180px;" class="product"></div>`
+        }
+        const heading = "<h1 class='name'>Top 15 Best Performing Ads</h1>"
+
+        $('#heading').html(heading)
+        $('#container').html(form_html);
+    }
     $(document).ready(function () {
         list_searchable_parameters()
     });
