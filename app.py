@@ -170,4 +170,4 @@ if __name__ == "__main__":
 
     # app = create_app(config=None)
     # , use_reloader=False) # remember to set debug to False
-    app.run(host='0.0.0.0', port=port, debug=VERBOSE)
+    app.run(debug=True)
