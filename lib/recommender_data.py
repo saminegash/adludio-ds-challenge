@@ -6,6 +6,7 @@ import numpy as np
 
 this_dir = os.path.dirname(os.path.abspath(__file__)) + '/'
 data_dir = this_dir + '../data/'
+
 sys.path.append(this_dir)
 
 import look_up_table as look_up_table
@@ -22,6 +23,7 @@ class RECCOMEND_DATA():
         dict_ = {}
         for ky in df.keys():
             dict_[ky] = df[ky].values
+        
         return dict_
 
 
@@ -40,6 +42,7 @@ class RECCOMEND_DATA():
         for ky in input_columns:
             if ky in self.data:
                 res[ky] = np.sort(np.unique(self.data[ky])).tolist()
+            
         return res
 
     def extract_data_slice(self, keys_vals_dict):

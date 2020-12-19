@@ -1,51 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #fff;
 }
-.flex-container{
+
+.flex-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.container{
+
+.container {
     position: relative;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 1200px;
     transform-style: preserve-3d;
 }
+
 .container .box {
     position: relative;
     width: 280px;
     height: 350px;
     margin: 40px;
     background: rgba(102, 16, 242, .3);
-
     border-radius: 20px;
     transform-style: preserve-3d;
 }
-.container .box:hover{
-    background: #d1d1d1;
 
+.container .box:hover {
+    background: #d1d1d1;
 }
 
-
-.container .box:before{
+.container .box:before {
     content: 'BEST';
     position: absolute;
     top: 5px;
@@ -58,7 +57,7 @@ body{
     transition: 0.5s;
 }
 
-.container .box:after{
+.container .box:after {
     content: 'ADS';
     position: absolute;
     bottom: 5px;
@@ -72,11 +71,8 @@ body{
 }
 
 .container .box:hover::before,
-.container .box:hover::after
-{
-    
+.container .box:hover::after {
     opacity: 0.3;
-
 }
 
 .container .box .name {
@@ -87,24 +83,23 @@ body{
     color: #6610f2;
     width: 100%;
     transform-style: preserve-3d;
-    transform: translate3d(0,0,75px);
+    transform: translate3d(0, 0, 75px);
     transition: 0.5s;
     opacity: 0;
     z-index: 10;
 }
 
-.container .box:hover .name{
-    top:40px;
+.container .box:hover .name {
+    top: 40px;
     opacity: 1;
-
 }
 
-.container .box .play{
+.container .box .play {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform-style: preserve-3d;
-    transform: translate3d(-50%,0,75px);
+    transform: translate3d(-50%, 0, 75px);
     color: #6610f2;
     background: #e1e1e1;
     border: 1px solid #6610f2;
@@ -116,13 +111,13 @@ body{
     z-index: 10;
 }
 
-.container .box:hover .play{
+.container .box:hover .play {
     bottom: 30px;
     box-shadow: 0 0 11px rgba(102, 16, 242, .5);
     opacity: 1;
 }
 
-.container .box .circle{
+.container .box .circle {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -146,11 +141,10 @@ body{
     z-index: 11;
     transition: 0.5s;
     transform-style: preserve-3d;
-    transform: translate3d(-50%, -50%,0px) rotate(-1deg);
+    transform: translate3d(-50%, -50%, 0px) rotate(-1deg);
 }
 
-
-.select{
+.select {
     padding: 20px 20px;
     margin: 10px 5px;
     color: #333333;
@@ -162,22 +156,21 @@ body{
 }
 
 .select:focus,
-.select:hover{
+.select:hover {
     outline: none;
     border: 1px solid #bbbbbb;
 }
 
-.submit{
+.submit {
     padding: 10px 20px;
     margin: 10px 5px;
     color: #fff;
-    background-color:  rgba(102, 16, 242, 0.75);
+    background-color: rgba(102, 16, 242, 0.75);
     border: 1px solid #dddddd;
     cursor: pointer;
     border-radius: 2px;
-
 }
-.submit:hover{
-        background-color: #6610f2;
-      
+
+.submit:hover {
+    background-color: #6610f2;
 }
