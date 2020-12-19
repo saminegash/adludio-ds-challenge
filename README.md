@@ -16,21 +16,6 @@ $ python app.py --means run on port 80
 $ python app.py 8080 -- means run on port 8080(choose yours)
 ```
 
-=== Introduction ===
-Dear candidate. 
-
-Good luck with this challenge, which is a real task that we really need help with right now. There are 4 tasks below.
-
-
-==background ===
-The website:
-http://creative-recommend-engine.adludio.com/demo1 
-
-Needs a new graphical user interface.
-
-Please make a new webpage using HTML and JavaScript, or however you see best. You have complete freedom to choose.
-
-=== Task list===
 
 1) Task 1:
 What we would like is for the current HTML form to be generalised so that is is populated dynamically with javascript by a call to http://creative-recommend-engine.adludio.com/list_searchable_parameters
