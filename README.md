@@ -1,15 +1,20 @@
-Creative Recommendation Engine
-
+# Creative Recommendation Engine
+![](card1.png)
+![](card2.png)
+![](card3.png)
+![](card4.png)
 -- to run locally --
 
 in app/
 python app.py /PORTNUMBER
 e.g. 
-
-python app.py    --means run on port 80
-
-python app.py  8080  --means run on port 8080
-
+```
+$ git clone https://github.com/saminegash/adludio-ds-challenge
+$ cd /adludio-ds-challenge
+$ pip install -r requerments.txt
+$ python app.py --means run on port 80
+$ python app.py 8080 -- means run on port 8080(choose yours)
+```
 
 === Introduction ===
 Dear candidate. 
