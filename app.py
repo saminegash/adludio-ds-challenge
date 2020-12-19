@@ -59,7 +59,10 @@ def page_test():
 def initial_form():
     """ Sanity check for flask application (used in automated tests)
     """
-    return render_template('demo_page.html', port=8080)
+    # use this while running the application
+    return render_template('demo_page.html', port=port)
+    # use this while running test cases if your.
+    # return render_template('demo_page.html', port=8080)
 
 
 @app.route('/example_form_interface', methods=['GET'])

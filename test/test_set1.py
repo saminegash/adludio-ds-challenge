@@ -4,9 +4,9 @@ import os
 # to import the app.py file we need to specify the path
 # the following three line of code does that for us
 this_dir = os.path.dirname(os.path.abspath(__file__)) + '/'
-data_dir = this_dir + '../'
+main_dir = this_dir + '../'
 
-sys.path.insert(1, data_dir)
+sys.path.insert(1, main_dir)
 
 from app import app
 from numpy.testing import assert_allclose, assert_raises, assert_raises_regex
